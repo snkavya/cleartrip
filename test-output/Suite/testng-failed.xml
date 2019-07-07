@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
+  <parameter name="browser" value="chrome"/>
+  <test thread-count="5" name="Test_firefox">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="scripts.searchflight"/>
+    </classes>
+  </test> <!-- Test_firefox -->
+  <test thread-count="5" name="Test_chrome">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="scripts.searchflight"/>
+    </classes>
+  </test> <!-- Test_chrome -->
+  <test name="Test_chrome(failed)" parallel="tests">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="scripts.searchflight">
+        <methods>
+          <include name="openappl"/>
+          <include name="openappl"/>
+          <include name="closeappl"/>
+          <include name="closeappl"/>
+          <include name="testsearchflight"/>
+        </methods>
+      </class> <!-- scripts.searchflight -->
+    </classes>
+  </test> <!-- Test_chrome(failed) -->
+</suite> <!-- Failed suite [Suite] -->
